@@ -20,7 +20,7 @@ from collections import defaultdict
 
 # ============================
 
-INPUT_PATH = r"C:\Users\jgonzale\OneDrive - Cuscal\Desktop\move_name\List_Jul18.xlsx"  # <-- .csv, .xlsx, or .xls
+INPUT_PATH = r"C:\Input path"  # <-- .csv, .xlsx, or .xls
 
 DRY_RUN = False  # True = simulate; False = actually move
 
@@ -464,3 +464,4 @@ if __name__ == "__main__":
     main()
 
  
+
