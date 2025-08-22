@@ -22,15 +22,15 @@ When records are spread across several staff folders (terminated, contractors, i
 7.	Log outcomes to an Excel workbook with Matches and Not Found sheets.
 # Features
 
-•	✅ Dry-run mode – see exactly what would be moved before making changes.
+•	 Dry-run mode – see exactly what would be moved before making changes.
 
-•	✅ Robust matching – tolerates punctuation differences (Smith, John vs Smith John) and accents (José vs Jose).
+•	 Robust matching – tolerates punctuation differences (Smith, John vs Smith John) and accents (José vs Jose).
 
-•	✅ Duplicate-safe – auto-suffixes destination names to avoid overwriting.
+•	 Duplicate-safe – auto-suffixes destination names to avoid overwriting.
 
-•	✅ Two-sheet Excel log – auditable output for both matches and misses.
+•	 Two-sheet Excel log – auditable output for both matches and misses.
 
-•	✅ Flexible headers – finds Surname/Given/Preferred columns by common aliases.
+•	 Flexible headers – finds Surname/Given/Preferred columns by common aliases.
 # Configuration
 
 Edit the constants near the top of the script:
