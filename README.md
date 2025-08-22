@@ -4,8 +4,6 @@
 Moves staff folders (top-level only) from multiple source directories to a quarantine/archive location by matching folder names to an input list of Surname/Given/Preferred names, with dry-run support and an Excel log of matches and misses.
 
 ⸻
-README.md (paste into your repo)
-Name-based Staff Folder Mover
 
 Moves staff folders (top-level only) from multiple source directories to a destination (“quarantine/archive”) folder by matching folder names to an input list of Surname, Given, and Preferred names. Generates an Excel log with a Matches sheet (what was moved or would be moved) and a Not Found sheet (input rows that didn’t match any folder). Supports dry-run.
 Why this exists
