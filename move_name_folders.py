@@ -36,42 +36,20 @@ COL_PREF_CANDIDATES    = {"preferred name", "preferred", "preferred_name", "pref
 
 FOLDERS_TO_SEARCH = [
 
-    # Test path:
 
-    #r"G:\People & Culture\Staff Records\Folder1",
-    #r"C:\Users\jgonzale\OneDrive - Cuscal\Desktop\move_name\Folder2",
+     r"C:\Folder to search path 1",
 
-    # Real paths (uncomment when ready):
+     r"C:\Folder to search path 2",
 
-     r"G:\People & Culture\Staff Records\2 - Terminated staff",
+     r"C:\Folder to search path 3",
 
-     r"G:\People & Culture\Staff Records\3 - Max term contractors",
-
-     r"G:\People & Culture\Staff Records\4 - Work experience & CUFA Interns",
-
-     r"G:\People & Culture\Staff Records\5 - Incorporated Contract Agreements",
-
-     r"G:\People & Culture\Staff Records\6 - Sole Trader",
-
-     r"G:\People & Culture\Staff Records\7 - Agency Temps",
-
-     r"G:\People & Culture\Staff Records\9 - Casuals\Terminated",
-
-     r"G:\People & Culture\Staff Records\10 - BOARD",
-
-     r"G:\People & Culture\Staff Records\11 - Interns",
-
-     r"G:\People & Culture\Staff Records\12 - External Contractors",
-
-     r"G:\People & Culture\Staff Records\Archive",
+     r"C:\Folder to search path 4",
 
 ]
 
 # Destination folder
 
-DESTINATION_FOLDER = r"G:\People & Culture\Staff Records\DO NOT USE - TO BE REMOVED"
-
-# DESTINATION_FOLDER = r"G:\People & Culture\Staff Records\DO NOT USE - TO BE REMOVED"
+DESTINATION_FOLDER = r"C:\Destination Folder"
 
 # ============================
 
@@ -484,4 +462,5 @@ def main():
 if __name__ == "__main__":
 
     main()
+
  
