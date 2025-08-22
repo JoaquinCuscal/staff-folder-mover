@@ -5,7 +5,7 @@ Moves staff folders (top-level only) from multiple source directories to a desti
 Why this exists
 
 When records are spread across several staff folders (terminated, contractors, interns, etc.), it’s tedious and risky to manually consolidate or quarantine them. This script automates the move with robust name matching and a full audit trail.
-How it works (high level)
+# How it works (high level)
 
 1.	Read input list from .csv, .xlsx, or .xls (e.g., exported HR list).
 
@@ -20,7 +20,7 @@ How it works (high level)
 6.	Move or simulate each matched folder to the destination, ensuring a unique destination name if a collision occurs (Folder, Folder_1, …).
 
 7.	Log outcomes to an Excel workbook with Matches and Not Found sheets.
-Features
+# Features
 
 •	✅ Dry-run mode – see exactly what would be moved before making changes.
 
@@ -31,7 +31,7 @@ Features
 •	✅ Two-sheet Excel log – auditable output for both matches and misses.
 
 •	✅ Flexible headers – finds Surname/Given/Preferred columns by common aliases.
-Configuration
+# Configuration
 
 Edit the constants near the top of the script:
 
@@ -42,7 +42,7 @@ Edit the constants near the top of the script:
 •	FOLDERS_TO_SEARCH: List of source root paths (top-level folders under each root are considered).
 
 •	DESTINATION_FOLDER: Where matched folders are moved.
-Column name detection
+# Column name detection
 
 The script will try to find headers using these candidate sets (case-insensitive; spaces/underscores ignored):
 
@@ -53,7 +53,7 @@ The script will try to find headers using these candidate sets (case-insensitive
 •	Preferred: {"preferred name","preferred","preferred_name","preferred given name","nickname"}
 
 If your headers are unusual, rename the columns in your file or add new candidates in the script.
-Input & Output
+# Input & Output
 
 •	Input file (INPUT_PATH): A table with at least one of Surname, Given, or Preferred columns.
 
@@ -62,32 +62,44 @@ Input & Output
 •	Output log: An Excel file saved to DESTINATION_FOLDER named: 
  move_name_folders_log_YYYYMMDD_HHMMSS.xlsx
  
- Matches sheet columns:
+ # Matches sheet columns:
+ 
 • Matched Variants, Folder Name, Source Folder, Destination Folder, Action (MOVE or DRY-RUN), Result, Timestamp
 
-• Not Found sheet:
-		• Original input columns that existed (subset of Surname/Given/Preferred) for rows that matched nothing.
-Safety & Limits
+# Not Found sheet:
+
+• Original input columns that existed (subset of Surname/Given/Preferred) for rows that matched nothing.
+  
+# Safety & Limits
 
 • Dry-run first. Set DRY_RUN = True to validate matching before moving
-	• The script does not recurse into subfolders when indexing—only the first level under each source root.
-	• Ensure you have permissions on source and destination paths.
-	• Locked folders/files may fail to move (these will be logged as errors).
-	• Moving large folders can take time; the script logs progress to the console.
+
+• The script does not recurse into subfolders when indexing—only the first level under each source root.
  
-Usage
+• Ensure you have permissions on source and destination paths.
+ 
+• Locked folders/files may fail to move (these will be logged as errors).
+ 
+• Moving large folders can take time; the script logs progress to the console.
+ 
+ 
+# Usage
 1. Edit the config block at the top of the script:
-• Set INPUT_PATH
-• Set FOLDERS_TO_SEARCH
-• Set DESTINATION_FOLDER
-• Start with DRY_RUN = True
+   
+	• Set INPUT_PATH
+
+	• Set FOLDERS_TO_SEARCH
+
+	• Set DESTINATION_FOLDER
+
+	• Start with DRY_RUN = True
  
-2.	Run: "move_name_folders.py"
+3.	Run: "move_name_folders.py"
 
-3.	Review the console output and the Excel log in the destination folder.
+4.	Review the console output and the Excel log in the destination folder.
 
-	4.	If correct, set DRY_RUN = False and run again to move folders.
-Matching details
+5.	If correct, set DRY_RUN = False and run again to move folders.
+# Matching details
 
 For each person, the script generates candidates from any of the available fields:
 
@@ -106,7 +118,7 @@ For each person, the script generates candidates from any of the available field
 •	Collapsed whitespace
 
 Each top-level folder name is normalized the same way and compared against all variants.
-Troubleshooting
+# Troubleshooting
 
 •	“Could not read input …” – Check the path/extension and that the file isn’t open/locked.
 
@@ -115,7 +127,7 @@ Troubleshooting
 •	Nothing moved – Verify that folder names resemble your name variants; try dry-run and inspect the Matched Variants column.
 
 •	Permission denied – Run with sufficient privileges or choose a destination you can write to.
-Example
+# Example
 
 •	Input row: Surname = "González", Given = "Joaquín", Preferred = ""
 
