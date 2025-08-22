@@ -63,15 +63,17 @@ Input & Output
  move_name_folders_log_YYYYMMDD_HHMMSS.xlsx
  
  Matches sheet columns:
-• Matched Variants, Folder Name, Source Folder, Destination Folder, Action (MOVE or DRY-RUN), Result, Timestamp
-• Not Found sheet:
-• Original input columns that existed (subset of Surname/Given/Preferred) for rows that matched nothing.
+	• Matched Variants, Folder Name, Source Folder, Destination Folder, Action (MOVE or DRY-RUN), Result, Timestamp
+
+	• Not Found sheet:
+		• Original input columns that existed (subset of Surname/Given/Preferred) for rows that matched nothing.
 Safety & Limits
-• Dry-run first. Set DRY_RUN = True to validate matching before moving.
-• The script does not recurse into subfolders when indexing—only the first level under each source root.
-• Ensure you have permissions on source and destination paths.
-• Locked folders/files may fail to move (these will be logged as errors).
-• Moving large folders can take time; the script logs progress to the console.
+
+	• Dry-run first. Set DRY_RUN = True to validate matching before moving
+	• The script does not recurse into subfolders when indexing—only the first level under each source root.
+	• Ensure you have permissions on source and destination paths.
+	• Locked folders/files may fail to move (these will be logged as errors).
+	• Moving large folders can take time; the script logs progress to the console.
  
 Usage
 1. Edit the config block at the top of the script:
