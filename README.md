@@ -59,7 +59,65 @@ Input & Output
 
 	•	Source folders: Only top-level directories under each path in FOLDERS_TO_SEARCH are indexed.
 
-	•	Output log: An Excel file saved to DESTINATION_FOLDER named:
+	•	Output log: An Excel file saved to DESTINATION_FOLDER named: 
+ move_name_folders_log_YYYYMMDD_HHMMSS.xlsx
  
-staff-folder-mover
+ Matches sheet columns:
+• Matched Variants, Folder Name, Source Folder, Destination Folder, Action (MOVE or DRY-RUN), Result, Timestamp
+• Not Found sheet:
+• Original input columns that existed (subset of Surname/Given/Preferred) for rows that matched nothing.
+Safety & Limits
+• Dry-run first. Set DRY_RUN = True to validate matching before moving.
+• The script does not recurse into subfolders when indexing—only the first level under each source root.
+• Ensure you have permissions on source and destination paths.
+• Locked folders/files may fail to move (these will be logged as errors).
+• Moving large folders can take time; the script logs progress to the console.
+ 
+Usage
+1. Edit the config block at the top of the script:
+• Set INPUT_PATH
+• Set FOLDERS_TO_SEARCH
+• Set DESTINATION_FOLDER
+• Start with DRY_RUN = True
+ 
+2.	Run: "move_name_folders.py"
+
+3.	Review the console output and the Excel log in the destination folder.
+
+	4.	If correct, set DRY_RUN = False and run again to move folders.
+Matching details
+
+For each person, the script generates candidates from any of the available fields:
+
+	•	Standalone: Preferred, Given, Surname
+
+	•	Combos: Given Surname, Surname Given, Surname, Given, and the same for Preferred + Surname
+
+	•	Normalizations for each candidate:
+
+	•	Lowercased
+
+	•	Accents removed (e.g., José → Jose)
+
+	•	Common punctuation removed (,.-’'()`)
+
+	•	Collapsed whitespace
+
+Each top-level folder name is normalized the same way and compared against all variants.
+Troubleshooting
+
+	•	“Could not read input …” – Check the path/extension and that the file isn’t open/locked.
+
+	•	“Could not find surname/given/preferred columns.” – Rename headers or extend candidate sets.
+
+	•	Nothing moved – Verify that folder names resemble your name variants; try dry-run and inspect the Matched Variants column.
+
+	•	Permission denied – Run with sufficient privileges or choose a destination you can write to.
+Example
+
+	•	Input row: Surname = "González", Given = "Joaquín", Preferred = ""
+
+	•	Generated variants (examples): joaquín gonzález, gonzález joaquín, gonzalez joaquin, gonzalez, joaquin
+
+	•	A folder named Gonzalez, Joaquin will match and be moved.
  
